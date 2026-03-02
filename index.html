@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login – JobFinder</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+  --primary-color: #6C63FF;
+  --secondary-color: #FF6584;
+  --accent-color: #42E2B8;
+  --dark-bg: #070711;
+  --light-bg: #0F0F1E;
+  --card-bg: #1A1A2E;
+  --text-color: #E2E2E2;
+  --text-light: #A0A0B0;
+  --white: #fff;
+  --border-radius: 16px;
+  --transition: all 0.3s ease;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, var(--light-bg) 0%, var(--dark-bg) 100%);
+  color: var(--text-color);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+header .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo i {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+}
+header h1 {
+  font-size: 1.6rem;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+nav {
+  display: flex;
+  gap: 20px;
+}
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: var(--transition);
+}
+nav a:hover, nav a.active {
+  background: rgba(108,99,255,0.1);
+  color: var(--primary-color);
+}
+.menu-toggle {
+  display: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--white);
+}
+nav.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* Login Section */
+.login-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.login-container {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.login-container h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 14px 14px 45px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: var(--transition);
+}
+
+.input-group input:focus {
+    outline: 2px solid var(--primary-color);
+    background: rgba(255,255,255,0.1);
+}
+
+.btn-login {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-login:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+}
+
+.login-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.login-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.login-links a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: var(--dark-bg);
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+footer p {
+  color: var(--text-light);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  nav {display: none;}
+  .menu-toggle {display: block;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">
+      <i class="fas fa-briefcase"></i>
+      <h1>JobFinder</h1>
+    </div>
+    <i class="fas fa-bars menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')"></i>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#jobs">Jobs</a>
+      <a href="login.html" class="active">Login</a>
+      <a href="#">Sign Up</a>
+    </nav>
+  </div>
+</header>
+
+<main class="login-section">
+    <div class="login-container">
+        <h2>Welcome Back</h2>
+        <form>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn-login">Login</button>
+            <div class="login-links">
+                <a href="#">Forgot Password?</a>
+                <a href="#">Create an Account</a>
+            </div>
+        </form>
+    </div>
+</main>
+
+<footer>
+  <p>© 2025 JobFinder. Connecting talent with opportunity.</p>
+</footer>
+
+</body>
+</html>
